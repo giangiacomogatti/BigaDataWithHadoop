@@ -1,0 +1,75 @@
+
+
+/**
+ *
+ * @author Gian Giacomo Gatti
+ */
+
+//Here are the Map and Reduce functions to Revert a matrix.
+
+public class RevertMatrix {
+    
+    public RevertMatrix(){}
+    
+
+    public static void main(String[] args) {
+            
+    
+  
+    }
+    
+    
+    public void Map (Matrix, Context){
+        
+    //Map() function receive as input the matrix
+    //It maps each element of the matrix into key-value pairs in the form (key, value) where:
+    // - key is the value of cell in the table
+    // - value is either the index of the row or the index of the column for that cell-value
+   // and send it to the context
+    
+    foreach element in Matrix {
+    
+        //Add to the context the pair (value of the cell, index of the row)
+        Context.add(element.value, element.rowIndex)
+        
+        //Add to the context the pair (value of the cell, index of the column)        
+        Context.add(element.value, element.rowIndex)
+    
+    }
+    
+    
+    
+     }
+    
+    
+    public void Reduce(key, value, Context ){
+    
+    //Reduce function will receive tuple in the form (k , [row,column] ) 
+    //Where key is the value of cell in the matrix
+    //and [row,column] are the indexes of that value.
+    //So, it should switch the two values in the array, then send back it to the context
+    
+    temp = value[0];
+    value[0] = value[1];
+    value[1] = temp; 
+    
+    Context.add ( k, value) ; 
+    
+    
+    
+    
+    }
+            
+            
+            
+            
+            
+        
+       
+        
+    
+   
+    
+    
+    
+}
